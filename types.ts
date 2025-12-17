@@ -1,0 +1,61 @@
+import { ThreeElements } from '@react-three/fiber';
+
+export interface TreeState {
+  interactionStrength: number; // 1.0 = Tree, 0.0 = Chaos
+  targetStrength: number;
+  cameraParallax: { x: number; y: number };
+  photos: string[]; // Base64 strings
+  setTargetStrength: (val: number) => void;
+  setCameraParallax: (x: number, y: number) => void;
+  addPhoto: (url: string) => void;
+  focusedPhotoIndex: number | null;
+  setFocusedPhotoIndex: (index: number | null) => void;
+  isGestureActive: boolean;
+  setIsGestureActive: (active: boolean) => void;
+  audioUrl: string | null;
+  setAudioUrl: (url: string | null) => void;
+  isAudioPlaying: boolean;
+  setIsAudioPlaying: (playing: boolean) => void;
+}
+
+export interface HandLandmarkerResult {
+  landmarks: number[][][];
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      ambientLight: any;
+      pointLight: any;
+      spotLight: any;
+      group: any;
+      mesh: any;
+      points: any;
+      bufferGeometry: any;
+      bufferAttribute: any;
+      shaderMaterial: any;
+      sphereGeometry: any;
+      meshStandardMaterial: any;
+      boxGeometry: any;
+      icosahedronGeometry: any;
+      meshPhysicalMaterial: any;
+      planeGeometry: any;
+      meshBasicMaterial: any;
+      color: any;
+
+      // HTML Elements
+      div: any;
+      span: any;
+      label: any;
+      input: any;
+      button: any;
+      p: any;
+      h1: any;
+      img: any;
+      video: any;
+      svg: any;
+      path: any;
+      circle: any;
+    }
+  }
+}
